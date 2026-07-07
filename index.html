@@ -11,8 +11,8 @@
 <style>
   :root{
     --base:#FAF6F1; --base-2:#F4ECE3; --ink:#2B2220; --ink-soft:#5A4C44;
-    --brand:#D4803A; --brand-deep:#9C5A2A; --accent:#6E3B52; --blush:#F3E3DC;
-    --card:#FFFDFB; --line:#E7D9CC; --gold:#B98a3e;
+    --brand:#C6A15B; --brand-deep:#8A6A24; --accent:#6E3B52; --blush:#F3E3DC;
+    --card:#FFFDFB; --line:#E7D9CC; --gold:#E4C982;
     --shadow:0 18px 50px -20px rgba(80,45,20,.28);
     --shadow-sm:0 8px 24px -12px rgba(80,45,20,.22);
     --serif:'Fraunces',Georgia,serif; --sans:'Figtree',system-ui,sans-serif;
@@ -24,7 +24,7 @@
     font-family:var(--sans); color:var(--ink); background:var(--base);
     line-height:1.6; font-size:17px; overflow-x:hidden;
     background-image:
-      radial-gradient(1100px 600px at 85% -5%, rgba(212,128,58,.10), transparent 60%),
+      radial-gradient(1100px 600px at 85% -5%, rgba(198,161,91,.14), transparent 60%),
       radial-gradient(900px 500px at -10% 20%, rgba(110,59,82,.06), transparent 55%);
   }
   /* subtle grain */
@@ -43,8 +43,8 @@
   /* buttons */
   .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:1.02rem;
     padding:17px 34px;border-radius:100px;border:0;cursor:pointer;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;}
-  .btn-primary{background:linear-gradient(180deg,var(--brand),var(--brand-deep));color:#fff;box-shadow:0 14px 30px -12px rgba(156,90,42,.7)}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 40px -12px rgba(156,90,42,.75)}
+  .btn-primary{background:linear-gradient(160deg,var(--gold-soft,#E7CE86),var(--gold) 45%,var(--brand));color:var(--ink);border:1px solid rgba(255,255,255,.4);box-shadow:0 14px 30px -12px rgba(138,106,36,.55),inset 0 1px 0 rgba(255,255,255,.5)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 42px -12px rgba(138,106,36,.6),inset 0 1px 0 rgba(255,255,255,.5)}
   .btn-primary::after{content:"→";font-weight:400;transition:transform .25s}
   .btn-primary:hover::after{transform:translateX(4px)}
   .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
