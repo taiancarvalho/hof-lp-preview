@@ -683,6 +683,12 @@ document.addEventListener('click',function(e){
   if(!a||!window.fbq)return;
   var eid=(self.crypto&&crypto.randomUUID)?crypto.randomUUID():'ic-'+Date.now()+'-'+Math.floor(Math.random()*1e6);
   fbq('track','InitiateCheckout',{content_name:'Formação em Injetáveis',value:147.00,currency:'BRL'},{eventID:eid});
+  // CAPI server-side (dedup pelo mesmo event_id) — só responde quando hospedado na Vercel; em outros hosts ignora silenciosamente
+  try{
+    var fbp=(document.cookie.match(/_fbp=([^;]+)/)||[])[1];
+    var fbc=(document.cookie.match(/_fbc=([^;]+)/)||[])[1];
+    fetch('/api/capi',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'InitiateCheckout',event_id:eid,event_source_url:location.href,custom_data:{value:147.00,currency:'BRL',content_name:'Formação em Injetáveis'},fbp:fbp,fbc:fbc})}).catch(function(){});
+  }catch(_){}
 });
 </script>
 </body>
