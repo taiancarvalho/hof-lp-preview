@@ -8,6 +8,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Meta Pixel · HOF Beauty (BR: 1657768221792702 · ES: 4194495030839682) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1657768221792702');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Formação em Injetáveis',content_category:'curso',content_ids:['formacao-injetaveis'],value:147.00,currency:'BRL'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1657768221792702&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 <style>
   :root{
     --base:#FAF6F1; --base-2:#F4ECE3; --ink:#2B2220; --ink-soft:#5A4C44;
@@ -668,8 +677,13 @@ window.addEventListener('scroll',()=>{sticky.classList.toggle('show',window.scro
 /* boot: render default PT instantly, adjust language once detected */
 render('pt'); bindReveal();
 detectLang().then(l=>{ if(l && l!=='pt') render(l); });
-/* hook de tracking (preencher pixel/GA depois) */
-document.addEventListener('click',e=>{if(e.target.closest('.cta-buy')||e.target.closest('#heroCta')){/* window.fbq&&fbq('track','InitiateCheckout'); */}});
+/* Meta Pixel · InitiateCheckout no clique de compra (eventID p/ dedup com CAPI) */
+document.addEventListener('click',function(e){
+  var a=e.target.closest('.cta-buy, #heroCta, a[href*="pay.hotmart.com"]');
+  if(!a||!window.fbq)return;
+  var eid=(self.crypto&&crypto.randomUUID)?crypto.randomUUID():'ic-'+Date.now()+'-'+Math.floor(Math.random()*1e6);
+  fbq('track','InitiateCheckout',{content_name:'Formação em Injetáveis',value:147.00,currency:'BRL'},{eventID:eid});
+});
 </script>
 </body>
 </html>
