@@ -72,12 +72,13 @@ fbq('track','ViewContent',{content_name:'Formação em Injetáveis',content_cate
   .hero-bg{position:absolute;inset:0;z-index:-2}
   .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:68% 26%}
   .hero-scrim{position:absolute;inset:0;z-index:-1;background:
-    linear-gradient(100deg,rgba(37,25,21,.95) 0%,rgba(43,30,28,.88) 32%,rgba(60,34,46,.55) 60%,rgba(96,48,74,.12) 100%),
-    linear-gradient(0deg,rgba(37,25,21,.55),transparent 42%),
-    radial-gradient(1000px 520px at 12% 28%,rgba(216,182,92,.16),transparent 62%)}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;z-index:-1;background:linear-gradient(0deg,var(--base),transparent)}
-  .hero-inner{width:100%;padding:96px 0}
-  .hero-copy{max-width:620px}
+    linear-gradient(105deg,rgba(35,24,20,.90) 0%,rgba(37,25,22,.80) 22%,rgba(41,27,26,.64) 38%,rgba(47,29,34,.46) 52%,rgba(55,32,42,.28) 66%,rgba(66,37,51,.13) 80%,rgba(74,41,58,.04) 92%,rgba(74,41,58,0) 100%),
+    linear-gradient(to top,rgba(34,23,20,.60) 0%,rgba(34,23,20,.18) 22%,rgba(34,23,20,0) 42%),
+    radial-gradient(1300px 820px at 4% 44%,rgba(214,180,98,.09),rgba(214,180,98,0) 60%)}
+  .hero::before{content:"";position:absolute;inset:18px;border:1px solid rgba(247,240,228,.30);border-radius:18px;z-index:1;pointer-events:none}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;z-index:1;pointer-events:none;background:linear-gradient(0deg,var(--base) 4%,transparent)}
+  .hero-inner{position:relative;z-index:2;width:100%;padding:clamp(92px,12vh,132px) clamp(28px,4vw,60px)}
+  .hero-copy{max-width:600px}
   .hero .eyebrow{color:var(--gold);margin-bottom:14px}
   .hero h1{font-size:clamp(2.6rem,5.8vw,4.6rem);margin:0 0 20px;color:#FCF7EF;line-height:1.06;text-shadow:0 2px 34px rgba(0,0,0,.28)}
   .hero h1 em{font-style:italic;color:var(--gold)}
@@ -218,10 +219,11 @@ fbq('track','ViewContent',{content_name:'Formação em Injetáveis',content_cate
     .masonry{columns:2;column-gap:12px}
     .sticky-txt span{display:none}
     .top-in img{height:28px}
-    .hero{min-height:86vh}
+    .hero{min-height:88vh}
     .hero-bg img{object-position:60% 16%}
-    .hero-scrim{background:linear-gradient(0deg,rgba(37,25,21,.96) 6%,rgba(43,30,28,.72) 46%,rgba(43,30,28,.2) 78%),radial-gradient(560px 380px at 50% 8%,rgba(216,182,92,.12),transparent 70%)}
-    .hero-inner{display:flex;align-items:flex-end;padding:72px 0 46px}
+    .hero-scrim{background:linear-gradient(to top,rgba(33,23,19,.95) 2%,rgba(36,25,21,.86) 24%,rgba(39,26,23,.62) 44%,rgba(39,26,23,.36) 62%,rgba(39,26,23,.14) 80%,rgba(39,26,23,0) 100%),radial-gradient(760px 500px at 50% 4%,rgba(214,180,98,.09),rgba(214,180,98,0) 66%)}
+    .hero::before{inset:11px;border-radius:14px}
+    .hero-inner{display:flex;align-items:flex-end;padding:78px 22px 50px}
     .hero .sub{max-width:none}
     .price-card .btn{width:calc(100% - 40px)}
   }
