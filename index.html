@@ -67,24 +67,28 @@ fbq('track','ViewContent',{content_name:'Formação em Injetáveis',content_cate
     padding:6px 12px;border-radius:100px;cursor:pointer;transition:.2s;letter-spacing:.04em}
   .lang button.on{background:var(--ink);color:var(--base)}
 
-  /* HERO */
-  .hero{padding-top:clamp(48px,7vw,84px);padding-bottom:0;overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-  .hero h1{font-size:clamp(2.5rem,5.6vw,4.3rem);margin:10px 0 22px}
-  .hero h1 em{font-style:italic;color:var(--brand-deep)}
-  .hero .sub{font-size:1.22rem;color:var(--ink-soft);max-width:34ch;margin-bottom:30px}
-  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
-  .micro{font-size:.86rem;color:var(--ink-soft);margin-top:18px;display:flex;align-items:center;gap:8px}
-  .micro b{color:var(--ink)}
-  .hero-proof{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-soft);font-weight:500}
-  .hero-media{position:relative}
-  .hero-media .frame{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;transform:rotate(1.5deg)}
-  .hero-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-  .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-  .badge{background:var(--card);border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:.82rem;font-weight:600;color:var(--brand-deep);box-shadow:var(--shadow-sm)}
-  .badge span{color:var(--ink)}
-  .float-tag{position:absolute;bottom:26px;left:-16px;background:var(--accent);color:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);max-width:190px;font-size:.82rem;line-height:1.35}
-  .float-tag b{display:block;font-family:var(--serif);font-size:1.5rem;line-height:1}
+  /* HERO — capa cinematográfica full-bleed (campo único) */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:68% 26%}
+  .hero-scrim{position:absolute;inset:0;z-index:-1;background:
+    linear-gradient(100deg,rgba(37,25,21,.95) 0%,rgba(43,30,28,.88) 32%,rgba(60,34,46,.55) 60%,rgba(96,48,74,.12) 100%),
+    linear-gradient(0deg,rgba(37,25,21,.55),transparent 42%),
+    radial-gradient(1000px 520px at 12% 28%,rgba(216,182,92,.16),transparent 62%)}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;z-index:-1;background:linear-gradient(0deg,var(--base),transparent)}
+  .hero-inner{width:100%;padding:96px 0}
+  .hero-copy{max-width:620px}
+  .hero .eyebrow{color:var(--gold);margin-bottom:14px}
+  .hero h1{font-size:clamp(2.6rem,5.8vw,4.6rem);margin:0 0 20px;color:#FCF7EF;line-height:1.06;text-shadow:0 2px 34px rgba(0,0,0,.28)}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero .sub{font-size:1.2rem;color:#ECE1D7;max-width:40ch;margin-bottom:30px;line-height:1.55}
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px}
+  .hero .micro{font-size:.86rem;color:#D9CCC0;display:flex;align-items:center;gap:8px}
+  .hero .micro b{color:#fff}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .badge{background:rgba(255,255,255,.10);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:9px 16px;font-size:.82rem;font-weight:600;color:#F3E7D5}
+  .badge span{color:var(--gold)}
+  .hero-proof{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);font-size:.9rem;color:#E9DBCB;font-weight:500;max-width:52ch}
 
   /* generic section headers */
   .sec-head{max-width:64ch}
@@ -201,12 +205,8 @@ fbq('track','ViewContent',{content_name:'Formação em Injetáveis',content_cate
   .reveal-on .rv.in{opacity:1;transform:none}
 
   @media(max-width:900px){
-    .hero-grid,.auth-grid,.certs-grid{grid-template-columns:1fr}
-    .hero-copy{order:0}
-    .hero-media{order:1;max-width:330px;margin:6px auto 0}
-    .hero-media img{aspect-ratio:1/1}
+    .auth-grid,.certs-grid{grid-template-columns:1fr}
     .hero .sub{margin-bottom:22px}
-    .float-tag{left:0;bottom:14px}
     .mods{grid-template-columns:1fr 1fr}
     .masonry{columns:2}
     .cred{grid-template-columns:1fr}
@@ -218,6 +218,10 @@ fbq('track','ViewContent',{content_name:'Formação em Injetáveis',content_cate
     .masonry{columns:2;column-gap:12px}
     .sticky-txt span{display:none}
     .top-in img{height:28px}
+    .hero{min-height:86vh}
+    .hero-bg img{object-position:60% 16%}
+    .hero-scrim{background:linear-gradient(0deg,rgba(37,25,21,.96) 6%,rgba(43,30,28,.72) 46%,rgba(43,30,28,.2) 78%),radial-gradient(560px 380px at 50% 8%,rgba(216,182,92,.12),transparent 70%)}
+    .hero-inner{display:flex;align-items:flex-end;padding:72px 0 46px}
     .hero .sub{max-width:none}
     .price-card .btn{width:calc(100% - 40px)}
   }
@@ -239,21 +243,19 @@ fbq('track','ViewContent',{content_name:'Formação em Injetáveis',content_cate
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="wrap hero-grid">
+  <div class="hero-bg"><img src="assets/drasuelen.jpg" alt="Dra. Suelen Correia" fetchpriority="high"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-inner">
     <div class="hero-copy">
       <span class="eyebrow" data-k="eyebrowHero"></span>
       <h1 id="heroH1"></h1>
       <p class="sub" id="heroSub"></p>
       <div class="hero-cta">
         <a href="#oferta" class="btn btn-primary" id="heroCta"></a>
+        <span class="micro" id="heroMicro"></span>
       </div>
-      <p class="micro" id="heroMicro"></p>
       <div class="badges" id="heroBadges"></div>
       <p class="hero-proof" id="heroProof"></p>
-    </div>
-    <div class="hero-media rv">
-      <div class="frame"><img src="assets/drasuelen.jpg" alt="Dra. Suelen Correia"></div>
-      <div class="float-tag"><b id="ftNum">5</b><span data-k="floatTag"></span></div>
     </div>
   </div>
 </section>
@@ -631,8 +633,6 @@ function render(lang){
   // faq
   document.getElementById('faq').innerHTML=t.faq.map(f=>`<div class="faq-item"><button class="faq-q">${f[0]}</button><div class="faq-a"><p>${f[1]}</p></div></div>`).join('');
   bindFaq();
-  // float tag number
-  document.getElementById('ftNum').textContent='5';
   // active lang button
   document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
 }
